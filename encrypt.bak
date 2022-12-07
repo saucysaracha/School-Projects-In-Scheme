@@ -1,0 +1,18 @@
+(define string-encryption
+  (lambda (str)
+    (list->string (map character-encryption
+                       (string->list str)))))
+
+(define character-encryption
+  (lambda (ch)
+    (if (char-alphabetic? ch)
+        (character-rotation ch)
+        ch
+        )))
+
+(define character-rotation
+  (lambda (ch)
+    (integer->char (+ (char->integer ch) 3)
+                   )))
+
+(string-encryption "Hello")
